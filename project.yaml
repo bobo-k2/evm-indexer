@@ -1,0 +1,40 @@
+specVersion: 1.0.0
+name: evm-indexer
+version: 1.0.0
+runner:
+  node:
+    name: '@subql/node'
+    version: '>=1.0.0'
+  query:
+    name: '@subql/query'
+    version: '*'
+description: >-
+  This project can be used as a starting point for developing your SubQuery
+  project
+repository: 'https://github.com/subquery/subql-starter'
+schema:
+  file: ./schema.graphql
+network:
+  chainId: '0x9eb76c5184c4ab8679d2d5d819fdf90b9c001403e9e17da2e14b6d8aec4029c6'
+  endpoint: 'wss://astar.api.onfinality.io/public-ws#/'
+  dictionary: 'https://explorer.subquery.network/subquery/astar-dictionary'
+dataSources:
+  - kind: substrate/FrontierEvm
+    startBlock: 1335161
+    processor:
+      file: './node_modules/@subql/frontier-evm-processor/dist/index.js'
+      options:
+        abi: erc20
+        address: '0x19574c3c8FaFc875051b665Ec131b7E60773d2C9'
+    assets:
+      test:
+        file: './contract/abi.json'
+      erc20:
+        file: './contract/abi.json'
+    mapping:
+      file: './dist/index.js'
+      handlers:
+        - handler: handleFrontierEvmCall
+          kind: substrate/FrontierEvmCall
+          filter:
+            function: deposit()

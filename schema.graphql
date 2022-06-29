@@ -2,16 +2,13 @@ type Deposit @entity {
 
   id: ID! #id is a required field
 
-  field1: Int!
+  timestamp: Int
 
-  field2: String #filed2 is an optional field
+  block: Int
 
-  field3: BigInt
+  sender: String!
 
-  field4: Date
+  success: Boolean!
 
-  field5: Boolean
-
-
-
+  value: BigInt  @index(unique: false)
 }

@@ -20,7 +20,7 @@ network:
   dictionary: 'https://explorer.subquery.network/subquery/astar-dictionary'
 dataSources:
   - kind: substrate/FrontierEvm
-    startBlock: 1335161
+    startBlock: 912855
     processor:
       file: './node_modules/@subql/frontier-evm-processor/dist/index.js'
       options:

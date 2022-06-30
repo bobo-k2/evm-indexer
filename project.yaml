@@ -20,12 +20,14 @@ network:
   dictionary: 'https://explorer.subquery.network/subquery/astar-dictionary'
 dataSources:
   - kind: substrate/FrontierEvm
-    startBlock: 912855
+    # startBlock: 912855
+    startBlock: 1130879
     processor:
       file: './node_modules/@subql/frontier-evm-processor/dist/index.js'
       options:
         abi: erc20
-        address: '0x19574c3c8FaFc875051b665Ec131b7E60773d2C9'
+        # address: '0x19574c3c8FaFc875051b665Ec131b7E60773d2C9'
+        address: '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720'
     assets:
       test:
         file: './contract/abi.json'
